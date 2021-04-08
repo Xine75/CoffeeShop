@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CoffeeShop.Repositories
 {
-    public class CoffeeRepository
+    public class CoffeeRepository : ICoffeeRepository
     {
         private readonly string _connectionString;
         public CoffeeRepository(IConfiguration configuration)
@@ -110,7 +110,7 @@ namespace CoffeeShop.Repositories
                 }
             }
         }
-        public void Delete (int id)
+        public void Delete(int id)
         {
             using (var conn = Connection)
             {

@@ -12,29 +12,33 @@ button.addEventListener("click", () => {
             beanVarieties.forEach(b => beanTarget.innerHTML +=
                 `<div>Bean Name: ${b.name}</div>
                 <br>
-                <div>Region: ${b.notes}</div>
+                <div>Region: ${b.region}</div>
                 <br>
                 <div>Notes: ${b.notes}</div>
                 <br>`)
 
         })
 
-    saveButton.addEventListener("click", () => {
 
+})
+saveButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (e.target.id == "saveBean") {
         let name = document.querySelector("#beanName").value
         let region = document.querySelector("#region").value
-        let note = document.querySelector("#notes").value
+        let notes = document.querySelector("#notes").value
+
+        console.log(name);
 
         const newBean = {
             name,
             region,
-            note
+            notes
         }
-        console.log(newBean)
+        debugger;
         addBeanVariety(newBean);
 
-
-    })
+    }
 
     function addBeanVariety(bean) {
         return fetch(url, {
